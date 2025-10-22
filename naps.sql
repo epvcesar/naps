@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Out-2025 às 15:33
+-- Tempo de geração: 22-Out-2025 às 15:58
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -140,7 +140,9 @@ INSERT INTO `atalhos` (`codAtalho`, `codModulo`, `codPerfil`, `codOrganizacao`) 
 (142, 325, 2, 1),
 (143, 330, 2, 1),
 (144, 19, 1, 21),
-(145, 23, 2, 1);
+(145, 23, 2, 1),
+(146, 24, 36, 1),
+(147, 25, 36, 1);
 
 -- --------------------------------------------------------
 
@@ -319,8 +321,9 @@ CREATE TABLE `colaboradores` (
 
 INSERT INTO `colaboradores` (`codColaborador`, `codClasse`, `codPerfilPadrao`, `codOrganizacao`, `ordenacao`, `pai`, `conta`, `codFuncao`, `codCargo`, `dn`, `nomeExibicao`, `nomeCompleto`, `nomePrincipal`, `identidade`, `cpf`, `emailFuncional`, `emailPessoal`, `emailGoogle`, `codEspecialidade`, `telefoneTrabalho`, `celular`, `endereco`, `aceiteTermos`, `hashTcms`, `senha`, `dataSenha`, `historicoSenhas`, `ativo`, `ipRequisitante`, `notificado`, `dataCriacao`, `dataAtualizacao`, `dataInicioEmpresa`, `dataNascimento`, `codUnidade`, `nrEndereco`, `codMunicipioFederacao`, `reservadoSimNao`, `reservadoTexto100`, `reservadoNumero`, `cep`, `fotoPerfil`, `informacoesComplementares`, `senhaResincLDAP`, `codMotivoInativo`, `codBen`, `codDepartamento`) VALUES
 (2, 2, 2, 1, NULL, NULL, 'emanuel', NULL, NULL, NULL, 'CAP EMANUEL', 'EMANUEL PEIXOTO VICENTE', 'CAP EMANUEL', '0000', '03164238401', '', 'emanuel@rumoaesfcex.com.br', NULL, NULL, '', '(81) 97900-0000', 'Avenida, Cais do Apolo, 77, Recife - PE', 1, NULL, 'd58b0a80c6cf8eecc8badbcb2f8f8ef0807935642b6f2ce30408c279f132830f', '2025-10-21 23:37:00', '', '1', NULL, 0, '2024-01-10 16:42:09', '2025-10-21 23:37:00', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'ajRIaHYvV1gzQ0xGMEluVTRyQ0V1UT09OjoKrxlzzkJ1eQ==', NULL, NULL, NULL),
-(3, 2, NULL, 1, NULL, NULL, 'recepcao', NULL, NULL, NULL, 'RECEPÇÃO', 'RECEPÇÃO', 'RECEPÇÃO', '0000', '00000000000', '', 'recepcao@7rm.eb.mil.br', NULL, NULL, '2222', '(22) 22222-2222', 'xxxx', 1, NULL, 'fcf1cd79e8113240974a15c1afb2f9ef5116b8ea49129b07a4bb963f37a74bb8', '2025-10-21 23:43:00', '', '1', NULL, 0, '2024-11-14 19:23:59', '2025-10-21 23:43:00', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL),
-(4, 2, 2, 30, NULL, NULL, 'cta', NULL, NULL, NULL, '5º CTA', '5CTA', '5º CTA', '0000', '03164238401', '', '5cta@5cta.eb.mil.br', NULL, NULL, '', '(81) 97900-0000', 'Avenida, Cais do Apolo, 77, Recife - PE', 1, NULL, '8e2fcad5215c0caded6f2474f4cb13214e7d687a62a986b4bb957af1f8b02259', '2025-03-12 18:23:00', '', '1', NULL, 0, '2024-01-10 16:42:09', '2025-03-12 18:45:00', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'ajRIaHYvV1gzQ0xGMEluVTRyQ0V1UT09OjoKrxlzzkJ1eQ==', NULL, NULL, NULL);
+(3, 2, 4, 1, NULL, NULL, 'recepcao', NULL, NULL, NULL, 'RECEPÇÃO', 'RECEPÇÃO', 'RECEPÇÃO', '0000', '00000000000', '', 'recepcao@7rm.eb.mil.br', NULL, NULL, '2222', '(22) 22222-2222', 'xxxx', 1, NULL, 'fcf1cd79e8113240974a15c1afb2f9ef5116b8ea49129b07a4bb963f37a74bb8', '2025-10-21 23:43:00', '', '1', NULL, 0, '2024-11-14 19:23:59', '2025-10-21 23:43:00', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL),
+(4, 2, 2, 30, NULL, NULL, 'cta', NULL, NULL, NULL, '5º CTA', '5CTA', '5º CTA', '0000', '03164238401', '', '5cta@5cta.eb.mil.br', NULL, NULL, '', '(81) 97900-0000', 'Avenida, Cais do Apolo, 77, Recife - PE', 1, NULL, '8e2fcad5215c0caded6f2474f4cb13214e7d687a62a986b4bb957af1f8b02259', '2025-03-12 18:23:00', '', '1', NULL, 0, '2024-01-10 16:42:09', '2025-03-12 18:45:00', NULL, NULL, 4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', 'ajRIaHYvV1gzQ0xGMEluVTRyQ0V1UT09OjoKrxlzzkJ1eQ==', NULL, NULL, NULL),
+(5, 1, 4, 1, NULL, NULL, 'naps', NULL, NULL, NULL, 'NAPS', 'NAPS', 'NAPS', '0000000000', '11112222222', '', 'naps@naps.eb.mil.br', NULL, NULL, '', '(11) 11111-1111', '2222222222222222222222', 1, NULL, 'b832a016067be543a34f3725f4c1b6d0931f13f056f8fc6cca12b080f780145b', '2025-10-22 13:57:00', '', '1', NULL, 0, '2025-10-22 13:56:32', '2025-10-22 13:57:00', NULL, NULL, 0, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '', NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -1710,7 +1713,23 @@ INSERT INTO `logs` (`codLog`, `codOrganizacao`, `ocorrencia`, `codColaborador`, 
 (1126, 1, 'Saiu do sistema', 0, '2025-10-22 10:40:00', '::1'),
 (1127, 1, 'Login Sucesso', 2, '2025-10-22 10:54:00', '::1'),
 (1128, 1, 'Saiu do sistema', 2, '2025-10-22 10:55:00', '::1'),
-(1129, 1, 'Login Sucesso', 2, '2025-10-22 10:55:00', '::1');
+(1129, 1, 'Login Sucesso', 2, '2025-10-22 10:55:00', '::1'),
+(1130, 1, 'Saiu do sistema', 2, '2025-10-22 13:50:00', '::1'),
+(1131, 1, 'Login Sucesso', 3, '2025-10-22 13:50:00', '::1'),
+(1132, 1, 'Saiu do sistema', 3, '2025-10-22 13:51:00', '::1'),
+(1133, 1, 'Login Sucesso', 3, '2025-10-22 13:52:00', '::1'),
+(1134, 1, 'Saiu do sistema', 3, '2025-10-22 13:52:00', '::1'),
+(1135, 1, 'Falha no Login', 2, '2025-10-22 13:52:00', '::1'),
+(1136, 1, 'Login Sucesso', 2, '2025-10-22 13:52:00', '::1'),
+(1137, 1, 'Saiu do sistema', 2, '2025-10-22 13:52:00', '::1'),
+(1138, 1, 'Login Sucesso', 3, '2025-10-22 13:53:00', '::1'),
+(1139, 1, 'Saiu do sistema', 3, '2025-10-22 13:55:00', '::1'),
+(1140, 1, 'Login Sucesso', 3, '2025-10-22 13:55:00', '::1'),
+(1141, 1, 'Saiu do sistema', 3, '2025-10-22 13:55:00', '::1'),
+(1142, 1, 'Login Sucesso', 2, '2025-10-22 13:55:00', '::1'),
+(1143, 1, 'Saiu do sistema', 2, '2025-10-22 13:58:00', '::1'),
+(1144, 1, 'Login Sucesso', 5, '2025-10-22 13:58:00', '::1'),
+(1145, 1, 'Saiu do sistema', 5, '2025-10-22 13:58:00', '::1');
 
 -- --------------------------------------------------------
 
@@ -2018,7 +2037,7 @@ INSERT INTO `perfis` (`codPerfil`, `codOrganizacao`, `descricao`, `dataCriacao`,
 (1, 1, 'Padrão', NULL, '2024-11-13 18:56:00', 0),
 (2, 1, 'Administrador', NULL, '2024-11-13 18:48:00', 0),
 (3, 1, 'Colaboradores', NULL, '2024-05-07 14:18:00', 0),
-(36, 1, 'Recepcao', '2025-10-21 01:09:00', '2025-10-21 01:09:00', 0);
+(4, 1, 'Recepcao', '2025-10-21 01:09:00', '2025-10-21 01:09:00', 0);
 
 -- --------------------------------------------------------
 
@@ -2043,10 +2062,10 @@ CREATE TABLE `perfiscolaboradoresmembro` (
 INSERT INTO `perfiscolaboradoresmembro` (`codColaboradorMembro`, `codColaborador`, `codPerfil`, `dataCriacao`, `dataAtualizacao`, `dataInicio`, `dataEncerramento`) VALUES
 (1, 2, 2, '2024-11-14 17:40:00', '2024-11-14 14:40:59', '2024-11-14', NULL),
 (10, 2, 1, '2024-11-14 19:14:00', '2024-11-14 19:14:00', '2024-11-14', NULL),
-(11, 3, 1, '2024-11-18 22:46:00', '2024-11-18 22:46:00', '2024-11-18', NULL),
-(12, 3, 2, '2024-11-18 22:52:00', '2024-11-18 22:52:00', '2024-11-18', NULL),
 (13, 4, 1, '2025-03-12 18:24:00', '2025-03-12 18:24:00', '2025-03-12', NULL),
-(14, 4, 2, '2025-03-12 18:45:00', '2025-03-12 18:45:00', '2025-03-12', NULL);
+(14, 4, 2, '2025-03-12 18:45:00', '2025-03-12 18:45:00', '2025-03-12', NULL),
+(15, 3, 4, '2025-10-22 13:51:00', '2025-10-22 13:54:21', '2025-10-22', NULL),
+(16, 5, 4, '2025-10-22 13:58:00', '2025-10-22 13:58:00', '2025-10-22', NULL);
 
 -- --------------------------------------------------------
 
@@ -2088,9 +2107,9 @@ INSERT INTO `perfismodulos` (`codPerfil`, `codModulo`, `codOrganizacao`, `listar
 (2, 22, 1, 1, 1, 1, 1, '2025-10-21 17:33:24', '2025-10-21 17:33:24'),
 (2, 24, 1, 1, 1, 1, 1, '2025-10-21 17:33:24', '2025-10-21 17:33:24'),
 (2, 25, 1, 1, 1, 1, 1, '2025-10-21 17:33:24', '2025-10-21 17:33:24'),
-(36, 22, 1, 1, 1, 1, 1, '2025-10-21 17:33:47', '2025-10-21 17:33:47'),
-(36, 24, 1, 1, 1, 1, 1, '2025-10-21 17:33:47', '2025-10-21 17:33:47'),
-(36, 25, 1, 1, 1, 1, 1, '2025-10-21 17:33:47', '2025-10-21 17:33:47');
+(4, 22, 1, 1, 1, 1, 1, '2025-10-21 17:33:47', '2025-10-21 17:33:47'),
+(4, 24, 1, 1, 1, 1, 1, '2025-10-21 17:33:47', '2025-10-21 17:33:47'),
+(4, 25, 1, 1, 1, 1, 1, '2025-10-21 17:33:47', '2025-10-21 17:33:47');
 
 -- --------------------------------------------------------
 
@@ -3225,7 +3244,7 @@ ALTER TABLE `timezone`
 -- AUTO_INCREMENT de tabela `atalhos`
 --
 ALTER TABLE `atalhos`
-  MODIFY `codAtalho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=146;
+  MODIFY `codAtalho` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=148;
 
 --
 -- AUTO_INCREMENT de tabela `atendimentos`
@@ -3255,7 +3274,7 @@ ALTER TABLE `chamadasfila`
 -- AUTO_INCREMENT de tabela `colaboradores`
 --
 ALTER TABLE `colaboradores`
-  MODIFY `codColaborador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `codColaborador` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `departamentos`
@@ -3285,7 +3304,7 @@ ALTER TABLE `federacoes`
 -- AUTO_INCREMENT de tabela `logs`
 --
 ALTER TABLE `logs`
-  MODIFY `codLog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1130;
+  MODIFY `codLog` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1146;
 
 --
 -- AUTO_INCREMENT de tabela `meios`
@@ -3327,7 +3346,7 @@ ALTER TABLE `perfis`
 -- AUTO_INCREMENT de tabela `perfiscolaboradoresmembro`
 --
 ALTER TABLE `perfiscolaboradoresmembro`
-  MODIFY `codColaboradorMembro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `codColaboradorMembro` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `portalorganizacao`
