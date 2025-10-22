@@ -58,7 +58,7 @@ class AtendimentosModel extends Model
 		join pacientes p on a.codPaciente = p.codPaciente
 		join especialidades e on a.codEspecialidade = e.codEspecialidade
 		join atendimentostatus s on a.codStatus = s.codStatus
-		where 1=1 ' . $filtro . ' order by a.dataCriacao desc, a.seq desc'
+		where 1=1 ' . $filtro . ' order by a.codStatus asc, a.dataCriacao desc, a.seq desc'
 		);
 		return $query->getResult();
 	}
