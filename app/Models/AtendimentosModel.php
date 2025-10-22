@@ -53,10 +53,11 @@ class AtendimentosModel extends Model
 		}
 
 		$query = $this->db->query(
-			'select a.*, p.nomeCompleto, e.especialidade from 
+			'select a.*, s.*,p.nomeCompleto, e.especialidade from 
 		atendimentos a
 		join pacientes p on a.codPaciente = p.codPaciente
 		join especialidades e on a.codEspecialidade = e.codEspecialidade
+		join atendimentostatus s on a.codStatus = s.codStatus
 		where 1=1 ' . $filtro . ' order by a.dataCriacao desc, a.seq desc'
 		);
 		return $query->getResult();

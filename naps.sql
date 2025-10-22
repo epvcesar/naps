@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Out-2025 às 14:16
+-- Tempo de geração: 22-Out-2025 às 15:21
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -165,21 +165,29 @@ CREATE TABLE `atendimentos` (
 --
 
 INSERT INTO `atendimentos` (`codAtendimento`, `codOrganizacao`, `codPaciente`, `dataCriacao`, `dataAtualizacao`, `codStatus`, `codEspecialidade`, `senha`, `seq`) VALUES
-(2, 1, 1, '2025-10-21 14:44:00', '2025-10-21 15:26:00', 1, 3, NULL, 0),
-(3, 1, 1, '2025-10-21 14:54:00', '2025-10-21 14:55:00', 1, 4, NULL, 0),
-(4, 1, 1, '2025-10-21 15:07:00', '2025-10-22 00:20:00', 1, 3, NULL, 0),
-(5, 1, 1, '2025-10-21 16:25:00', '2025-10-21 16:25:00', 1, 3, NULL, 0),
-(6, 1, 1, '2025-10-21 17:07:00', '2025-10-21 17:07:00', 1, 2, NULL, 0),
-(7, 1, 5, '2025-10-22 00:13:00', '2025-10-22 01:12:00', 1, 2, NULL, 0),
-(8, 1, 3, '2025-10-22 00:20:00', '2025-10-22 00:20:00', 1, 2, NULL, 0),
-(9, 1, 8, '2025-10-22 00:23:00', '2025-10-22 00:23:00', 1, 2, NULL, 0),
-(10, 1, 1, '2025-10-22 00:24:00', '2025-10-22 00:24:00', 1, 4, NULL, 0),
-(11, 1, 10, '2025-10-22 00:25:00', '2025-10-22 00:25:00', 1, 4, NULL, 0),
-(12, 1, 11, '2025-10-22 00:25:00', '2025-10-22 00:25:00', 1, 3, NULL, 0),
-(13, 1, 12, '2025-10-22 00:44:00', '2025-10-22 00:44:00', 1, 3, NULL, 0),
-(28, 1, 1, '2025-10-22 11:33:00', '2025-10-22 11:33:00', 1, 2, 'DENT001', 1),
-(29, 1, 13, '2025-10-22 11:33:00', '2025-10-22 11:33:00', 1, 2, 'DENT002', 2),
-(30, 1, 13, '2025-10-22 11:59:00', '2025-10-22 11:59:00', 1, 4, 'ORTO001', 1);
+(1, 1, 1, '2025-10-22 13:00:00', '2025-10-22 13:19:00', 1, 1, 'CLIN001', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `atendimentostatus`
+--
+
+CREATE TABLE `atendimentostatus` (
+  `codStatus` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `botao` varchar(22) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Extraindo dados da tabela `atendimentostatus`
+--
+
+INSERT INTO `atendimentostatus` (`codStatus`, `status`, `botao`) VALUES
+(1, 'Novo', 'primary'),
+(2, 'Em atendimento', 'primary'),
+(3, 'Faltou', 'danger'),
+(4, 'Atendido', 'success');
 
 -- --------------------------------------------------------
 
@@ -244,13 +252,6 @@ CREATE TABLE `chamadasfila` (
   `codClasseRisco` int(11) NOT NULL DEFAULT 1,
   `codExameLista` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Extraindo dados da tabela `chamadasfila`
---
-
-INSERT INTO `chamadasfila` (`codChamada`, `localAssistencia`, `dataChamada`, `codChamador`, `qtdChamadas`, `codPaciente`, `codOrganizacao`, `codEspecialidade`, `codClasseRisco`, `codExameLista`) VALUES
-(24, 'ORTOPEDISTA', '2025-10-22 11:59:55', 2, 0, 13, 1, 4, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -3074,6 +3075,12 @@ ALTER TABLE `atendimentos`
   ADD PRIMARY KEY (`codAtendimento`);
 
 --
+-- Índices para tabela `atendimentostatus`
+--
+ALTER TABLE `atendimentostatus`
+  ADD PRIMARY KEY (`codStatus`);
+
+--
 -- Índices para tabela `cargos`
 --
 ALTER TABLE `cargos`
@@ -3220,7 +3227,13 @@ ALTER TABLE `atalhos`
 -- AUTO_INCREMENT de tabela `atendimentos`
 --
 ALTER TABLE `atendimentos`
-  MODIFY `codAtendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `codAtendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT de tabela `atendimentostatus`
+--
+ALTER TABLE `atendimentostatus`
+  MODIFY `codStatus` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de tabela `cargos`

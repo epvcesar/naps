@@ -69,14 +69,16 @@ class Atendimentos extends BaseController
 			$ops = '<div class="btn-group">';
 			$ops .= '	<button type="button" class="btn btn-primary" onclick="saveAtendimentos(' . $value->codAtendimento . ')"><i class="fa fa-edit"></i></button>';
 			$ops .= '	<button type="button" class="btn btn-success" onclick="chamarPainel(' . $value->codAtendimento . ')"><i class="fa-solid fa-bullhorn"></i></button>';
-			$ops .= '	<button type="button" class="btn btn-info" onclick="saveAtendimentos(' . $value->codAtendimento . ')"><i class="fa-solid fa-"></i> Status</button>';
+			$ops .= '	<button type="button" class="btn btn-info" onclick="alterarStatus(' . $value->codAtendimento . ')"><i class="fa-solid fa-"></i> Status</button>';
 			$ops .= '	<button type="button" class="btn btn-danger" data-bs-toggle="tooltip" data-placement="top" title="Remover" onclick="removeAtendimentos(' . $value->codAtendimento . ')"><i class="fa fa-trash"></i></button>';
 			$ops .= '</div>';
 
 			$data['data'][$key] = array(
 				$value->nomeCompleto,
 				$value->especialidade,
+				date('d/m/Y H:i', strtotime($value->dataCriacao)),
 				$value->senha,
+				'<span class="badge bg-'.$value->botao.'">'.$value->status.'</span>',
 				$ops
 			);
 		}
@@ -271,6 +273,41 @@ class Atendimentos extends BaseController
 		return $this->response->setJSON($response);
 	}
 
+	public function alterarStatus()
+	{
+		$response = array();
+
+		$fields['codAtendimento'] = $this->request->getPost('codAtendimento');
+		$fields['dataAtualizacao'] = date('Y-m-d H:i');
+		$fields['codStatus'] = $this->request->getPost('codStatus');
+
+
+		$this->validation->setRules([
+			'codAtendimento' => ['label' => 'Código', 'rules' => 'required|numeric|min_length[0]|max_length[11]'],
+			'dataAtualizacao' => ['label' => 'DataAtualizacao', 'rules' => 'permit_empty|valid_date|min_length[0]'],
+
+		]);
+
+		if ($this->validation->run($fields) == FALSE) {
+
+			$response['success'] = false;
+			$response['messages'] = $this->validation->getErrors(); //Show Error in Input Form
+
+		} else {
+
+			if ($this->atendimentosModel->update($fields['codAtendimento'], $fields)) {
+
+				$response['success'] = true;
+				$response['messages'] = 'Atualizado com sucesso';
+			} else {
+
+				$response['success'] = false;
+				$response['messages'] = 'Erro ao atualizar';
+			}
+		}
+
+		return $this->response->setJSON($response);
+	}
 	public function remove()
 	{
 		$response = array();

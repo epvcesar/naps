@@ -34,7 +34,9 @@
         <tr>
           <th>Paciente</th>
           <th>Especialidade</th>
+          <th>Data/Hora</th>
           <th>Senha</th>
+          <th>Status</th>
           <th></th>
         </tr>
       </thead>
@@ -222,6 +224,73 @@
   });
 
 
+
+  function xx(codAtendimento) {
+    $('#dataModalAtendimentos').modal('show');
+  }
+
+  async function alterarStatus(codAtendimento) {
+    const {
+      value: item
+    } = await Swal.fire({
+      title: 'Novo Status',
+      input: 'select',
+      inputOptions: {
+        '1': 'Novo',
+        '2': 'Em Atendimento',
+        '3': 'Faltouo',
+        '4': 'Atendido',
+      },
+      inputPlaceholder: 'Escolha...',
+      showCancelButton: true,
+      confirmButtonText: 'Confirmar',
+      cancelButtonText: 'Cancelar',
+      inputValidator: (value) => {
+        if (!value) return 'Selecione uma opção';
+      }
+    });
+
+    if (item) {
+
+      $.ajax({
+        url: "<?php echo base_url("Atendimentos/alterarStatus") ?>",
+        type: "post",
+        dataType: "json",
+        data: {
+          codAtendimento: codAtendimento,
+          codStatus: item,
+          csrf_principal: $("#csrf_principal").val(),
+        },
+        success: function(response) {
+
+          if (response.success === true) {
+
+            Swal.fire({
+              toast: false,
+              position: 'bottom-end',
+              icon: 'success',
+              title: response.messages,
+              showConfirmButton: false,
+              timer: 1500
+            })
+            $('#data_tableAtendimentos').DataTable().ajax.reload(null, false).draw(false);
+          } else {
+
+            Swal.fire({
+              toast: false,
+              position: 'bottom-end',
+              icon: 'error',
+              title: response.messages,
+              showConfirmButton: false,
+              timer: 1500
+            })
+
+          }
+        }
+      });
+
+    }
+  }
 
   function saveAtendimentos(codAtendimento) {
     // reset the form 
@@ -716,47 +785,46 @@
     });
   }
 
-  	function chamarPainel(codAtendimento) {
+  function chamarPainel(codAtendimento) {
 
-		$.ajax({
-			url: '<?php echo base_url('atendimentos/chamarPacienteAgora') ?>',
-			type: 'post',
-			data: {
-				codAtendimento: codAtendimento,
-				csrf_sandra: $("#csrf_sandraPrincipal").val(),
-			},
-			dataType: 'json',
-			success: function(chamaPaciente) {
-				if (chamaPaciente.success === true) {
-					var Toast = Swal.mixin({
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 5000
-					});
-					Toast.fire({
-						icon: 'success',
-						title: chamaPaciente.messages
-					})
+    $.ajax({
+      url: '<?php echo base_url('atendimentos/chamarPacienteAgora') ?>',
+      type: 'post',
+      data: {
+        codAtendimento: codAtendimento,
+        csrf_sandra: $("#csrf_sandraPrincipal").val(),
+      },
+      dataType: 'json',
+      success: function(chamaPaciente) {
+        if (chamaPaciente.success === true) {
+          var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000
+          });
+          Toast.fire({
+            icon: 'success',
+            title: chamaPaciente.messages
+          })
 
-				} else {
-					var Toast = Swal.mixin({
-						toast: true,
-						position: 'top-end',
-						showConfirmButton: false,
-						timer: 5000
-					});
-					Toast.fire({
-						icon: 'error',
-						title: chamaPaciente.messages
-					})
-				}
+        } else {
+          var Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 5000
+          });
+          Toast.fire({
+            icon: 'error',
+            title: chamaPaciente.messages
+          })
+        }
 
-			}
-		})
+      }
+    })
 
-	}
-
+  }
 </script>
 
 
