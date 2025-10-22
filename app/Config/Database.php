@@ -28,7 +28,7 @@ class Database extends Config
         'DSN'          => '',
         'hostname'     => 'localhost',
         'username'     => 'root',
-        'password'     => 'XSX2qiGKM3',
+        'password'     => 'naps',
         'database'     => 'naps',
         'DBDriver'     => 'MySQLi',
         'DBPrefix'     => '',
