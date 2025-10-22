@@ -27,7 +27,7 @@ class Database extends Config
     public array $default = [
         'DSN'          => '',
         'hostname'     => 'localhost',
-        'username'     => 'root',
+        'username'     => 'naps',
         'password'     => 'naps',
         'database'     => 'naps',
         'DBDriver'     => 'MySQLi',
