@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 22-Out-2025 às 15:21
+-- Tempo de geração: 22-Out-2025 às 15:33
 -- Versão do servidor: 10.4.13-MariaDB
 -- versão do PHP: 7.4.8
 
@@ -165,7 +165,11 @@ CREATE TABLE `atendimentos` (
 --
 
 INSERT INTO `atendimentos` (`codAtendimento`, `codOrganizacao`, `codPaciente`, `dataCriacao`, `dataAtualizacao`, `codStatus`, `codEspecialidade`, `senha`, `seq`) VALUES
-(1, 1, 1, '2025-10-22 13:00:00', '2025-10-22 13:19:00', 1, 1, 'CLIN001', 1);
+(1, 1, 1, '2025-10-22 13:00:00', '2025-10-22 13:19:00', 1, 1, 'CLIN001', 1),
+(2, 1, 1, '2025-10-22 13:22:00', '2025-10-22 13:29:00', 3, 3, 'FISIO001', 1),
+(3, 1, 13, '2025-10-22 13:22:00', '2025-10-22 13:29:00', 4, 3, 'FISIO002', 2),
+(4, 1, 3, '2025-10-22 13:23:00', '2025-10-22 13:23:00', 1, 3, 'FISIO003', 3),
+(5, 1, 12, '2025-10-22 13:23:00', '2025-10-22 13:24:00', 4, 3, 'FISIO004', 4);
 
 -- --------------------------------------------------------
 
@@ -175,7 +179,7 @@ INSERT INTO `atendimentos` (`codAtendimento`, `codOrganizacao`, `codPaciente`, `
 
 CREATE TABLE `atendimentostatus` (
   `codStatus` int(11) NOT NULL,
-  `status` varchar(20) NOT NULL,
+  `status` varchar(40) NOT NULL,
   `botao` varchar(22) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -184,7 +188,7 @@ CREATE TABLE `atendimentostatus` (
 --
 
 INSERT INTO `atendimentostatus` (`codStatus`, `status`, `botao`) VALUES
-(1, 'Novo', 'primary'),
+(1, 'Espera', 'secondary'),
 (2, 'Em atendimento', 'primary'),
 (3, 'Faltou', 'danger'),
 (4, 'Atendido', 'success');
@@ -3227,7 +3231,7 @@ ALTER TABLE `atalhos`
 -- AUTO_INCREMENT de tabela `atendimentos`
 --
 ALTER TABLE `atendimentos`
-  MODIFY `codAtendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `codAtendimento` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `atendimentostatus`
