@@ -238,7 +238,7 @@
       inputOptions: {
         '1': 'Novo',
         '2': 'Em Atendimento',
-        '3': 'Faltouo',
+        '3': 'Faltou',
         '4': 'Atendido',
       },
       inputPlaceholder: 'Escolha...',
